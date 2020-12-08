@@ -1,0 +1,28 @@
+﻿
+.parent {
+    display: flex;
+}
+
+.child {
+    flex: 1;
+    width: 70%;
+}
+
+#alist {
+    height: 900px;
+    width: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.child2 {
+    width: 30%;
+}
+
+.vis {
+    visibility: visible;
+}
+
+#frame {
+    width: 100%;
+}

@@ -1,0 +1,5 @@
+﻿add-migration -ConfigurationTypeName FinalProject.Migrations.Configuration "MakeDb"
+
+
+Enable-Migrations -ContextTypeName AnnoContext
+

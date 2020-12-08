@@ -1,0 +1,93 @@
+﻿@model FinalProject.Models.Annotation
+
+@section Content {
+    <link href="@Url.Content("~/Content/CreateView.css")" rel="stylesheet" type="text/css" />
+}
+
+
+@{
+    ViewBag.Title = System.IO.Path.GetFileNameWithoutExtension(ViewBag.file);
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="parent">
+    <div class="child" id="div1">
+        <div class="pdf" id="pdfview">
+            <iframe id="frame" src="~/Storage/@ViewBag.file#toolbar=0" style="height:500px;" frameborder="0"></iframe>
+        </div>
+        @*Annotation Creation/Submission Box*@
+        <div class="abox">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Annotation</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.content, new { htmlAttributes = new { @class = "comment" } })
+                            @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.pageNum, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.pageNum, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.pageNum, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.paragraph, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.paragraph, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.paragraph, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="child2" id="div2">
+        <button class="btn btn-primary"id="hideme">Hide Annotations</button>
+        @*Renders Annotation List by calling the Index View *@
+        <div class="vis" id="alist">
+            @{
+                Html.RenderAction("Index");
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("#hideme").click(function () {
+            $("#alist").toggle();
+            var x = document.getElementById("hideme");
+            if (x.innerHTML === "Hide Annotations") {
+                x.innerHTML = "Show Annotations";
+                document.getElementById('div1').style.width = '90%';
+                document.getElementById('div2').style.width = '10%';
+            } else {
+                x.innerHTML = "Hide Annotations";
+                document.getElementById('div1').style.width = '70%';
+                document.getElementById('div2').style.width = '30%';
+            }
+        });
+    });
+</script>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "PDFs")
+
+</div>

@@ -1,0 +1,26 @@
+﻿
+@model FinalProject.Models.PDF  
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+ 
+            <div class="pdf">
+                <iframe src="~/Storage/@ViewBag.file" style="width:600px; height:500px;" frameborder="0"></iframe>
+            </div>
+            <div class="annotation list">
+
+            </div>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+
+</p>

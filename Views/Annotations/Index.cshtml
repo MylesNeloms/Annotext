@@ -1,0 +1,14 @@
+﻿@model IEnumerable<FinalProject.Models.Annotation>
+
+
+@{
+    
+}
+
+@*List of Annotations*@
+<table>
+    @foreach (var item in Model.Where(a => a.filename == @ViewBag.filename))
+    {
+        @Html.Partial("_AnnotationList", item)
+    }
+</table>
