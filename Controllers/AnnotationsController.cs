@@ -21,7 +21,7 @@ namespace FinalProject.Controllers
         // GET: Annotations
         public ActionResult Index()
         {
-            ViewBag.filename = TempData["file"];
+           TempData["file"] = file;
             ViewBag.ShowNavBar = false;
             return View(db.annotations.ToList());
         }
@@ -64,7 +64,7 @@ namespace FinalProject.Controllers
         public ActionResult Create([Bind(Include = "id,content,pageNum,paragraph")] Annotation annotation)
         {
             annotation.VoteVal = 0;
-            annotation.filename = System.IO.Path.GetFileNameWithoutExtension(file);
+            annotation.filename = file;
             annotation.author = this.User.Identity.Name.ToString();
            if (ModelState.IsValid)
             {
@@ -74,7 +74,8 @@ namespace FinalProject.Controllers
                 ModelState.Clear();
   
             }
-            
+            ViewBag.file = file;
+
             
             ViewBag.filename = new SelectList(db.PDFs, "filename", "filename", annotation.filename);
             return View();

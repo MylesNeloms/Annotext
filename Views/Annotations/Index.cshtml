@@ -7,7 +7,7 @@
 
 @*List of Annotations*@
 <table>
-    @foreach (var item in Model.Where(a => a.filename == @ViewBag.filename))
+    @foreach (var item in Model.Where(a => a.filename == TempData["file"].ToString()))
     {
         @Html.Partial("_AnnotationList", item)
     }
