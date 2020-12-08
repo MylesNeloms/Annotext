@@ -1,32 +1,65 @@
 ﻿@model IEnumerable<FinalProject.Models.PDF>
 
-@{
-    ViewBag.Title = "Index";
+@section Content {
+    <link href="@Url.Content("~/Content/CreateView.css")" rel="stylesheet" type="text/css" />
 }
+<style>
+    #item {
+        box-sizing: border-box;
+        background-color: #ffffff;
+        /*padding: 30px;*/
+        height: 300px;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        margin: 25px 30px 50px 30px;
+        /*box-shadow: 1px 1px 5px 3px grey;*/
+        /*background-image: url('../../Content/a_logo.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;*/
+    }
+</style>
+@*<p>
+        Study Materials
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.filename)
+            </th>
+            <th></th>
+        </tr>
 
-<h2>Index</h2>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.filename)
+                </td>
+                <td>
+                    @Html.ActionLink("Read More", "Details", new { id = item.id }) |
 
-<p>
-    Study Materials
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.filename)
-        </th>
-        <th></th>
-    </tr>
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.filename)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.id }) |
-
-        </td>
-    </tr>
-}
-
-</table>
+    </table>*@
+<div class="section-title">
+    <h2>Popular Textbooks</h2>
+    <h3>Lets Browse All Subjects</h3>
+</div>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4" id="item">
+                <img src="~/Content/a_logo.png" alt="Annotext Logo" height="175" width="175" />
+                @Html.DisplayFor(modelItem => item.filename)
+                <br />
+                <div>
+                    @Html.ActionLink("Read More", "Details", new { id = item.id })
+                </div>
+            </div>
+        }
+    </div>
+</div>
