@@ -14,14 +14,14 @@ namespace FinalProject.Controllers
 {
     public class AnnotationsController : Controller
     {
-        public string file = PDFsController.filename;
-        private int index = 0;
+       // public string file = PDFsController.filename;
+       // private int index = 0;
         private AnnoContext db = new AnnoContext();
 
         // GET: Annotations
         public ActionResult Index()
         {
-           TempData["file"] = file;
+           //TempData["file"] = file;
             ViewBag.ShowNavBar = false;
             return View(db.annotations.ToList());
         }
@@ -48,8 +48,8 @@ namespace FinalProject.Controllers
             ViewBag.filename = new SelectList(db.PDFs, "filename", "filename");
 
             
-                ViewBag.file = file;
-            
+                ViewBag.file = TempData["file"];
+            TempData.Keep("file");
                
             return View("Create");
         }
@@ -64,7 +64,7 @@ namespace FinalProject.Controllers
         public ActionResult Create([Bind(Include = "id,content,pageNum,paragraph")] Annotation annotation)
         {
             annotation.VoteVal = 0;
-            annotation.filename = file;
+            annotation.filename = TempData["file"].ToString();//=file;
             annotation.author = this.User.Identity.Name.ToString();
            if (ModelState.IsValid)
             {
@@ -74,8 +74,8 @@ namespace FinalProject.Controllers
                 ModelState.Clear();
   
             }
-            ViewBag.file = file;
-
+            ViewBag.file = TempData["file"];// = file;
+            TempData.Keep("file");
             
             ViewBag.filename = new SelectList(db.PDFs, "filename", "filename", annotation.filename);
             return View();
@@ -86,6 +86,7 @@ namespace FinalProject.Controllers
         // GET: Annotations/Edit/5
         public ActionResult Edit(int? id)
         {
+            TempData.Keep("file");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -105,13 +106,14 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,VoteVal")] Annotation annotation)
         {
+            TempData.Keep("file");
             Annotation an = db.annotations.Find(annotation.id);
             an.VoteVal = annotation.VoteVal;
             //if (ModelState.IsValid)
             //{
                 db.Entry(an).State = EntityState.Modified;
              db.SaveChanges();
-                return RedirectToAction("Index","PDFs");
+                return RedirectToAction("Create");
             //}
           // return View(an);
         }

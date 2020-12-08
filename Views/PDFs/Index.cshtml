@@ -6,8 +6,9 @@
 <style>
     #item {
         box-sizing: border-box;
-        background-color: #ffffff;
+        background-color: #4f4e4b;
         /*padding: 30px;*/
+        border-radius: 10%;
         height: 300px;
         width: 200px;
         box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -19,31 +20,7 @@
         background-position: center;*/
     }
 </style>
-@*<p>
-        Study Materials
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.filename)
-            </th>
-            <th></th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.filename)
-                </td>
-                <td>
-                    @Html.ActionLink("Read More", "Details", new { id = item.id }) |
-
-                </td>
-            </tr>
-        }
-
-    </table>*@
 <div class="section-title">
     <h2>Popular Textbooks</h2>
     <h3>Lets Browse All Subjects</h3>

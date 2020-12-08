@@ -218,6 +218,7 @@
     <Content Include="App_Data\Annotext_log.ldf">
       <DependentUpon>Annotext.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bluetheme.css" />
     <Content Include="Content\bootstrap-darkly-old.css" />
     <Content Include="Content\bootstrap-darkly.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -225,6 +226,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CreateView.css" />
+    <Content Include="Content\smart-forms.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -343,8 +345,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -367,11 +367,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\View.cshtml" />
-    <Content Include="Views\PDFs\Create.cshtml" />
-    <Content Include="Views\PDFs\Delete.cshtml" />
-    <Content Include="Views\PDFs\Details.cshtml" />
     <Content Include="Views\PDFs\Index.cshtml" />
-    <Content Include="Views\PDF.cshtml" />
     <Content Include="Storage\Chapter03_SG.pdf" />
     <Content Include="Storage\Chapter04_SG.pdf" />
     <Content Include="Storage\ICMP.pdf" />
@@ -381,8 +377,6 @@
     <Content Include="Storage\Transport Layer Protocols.pdf" />
     <Content Include="Storage\VLAN Hopping.pdf" />
     <Content Include="Views\Annotations\Create.cshtml" />
-    <Content Include="Views\Annotations\Delete.cshtml" />
-    <Content Include="Views\Annotations\Details.cshtml" />
     <Content Include="Views\Annotations\Edit.cshtml" />
     <Content Include="Views\Annotations\Index.cshtml" />
     <Content Include="Views\Annotations\_AnnotationList.cshtml" />
@@ -396,7 +390,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Annotations\Editmodel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

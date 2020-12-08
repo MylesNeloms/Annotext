@@ -17,7 +17,7 @@ namespace FinalProject.Controllers
 
         private AnnoContext db = new AnnoContext();
 
-        // GET: PDFs
+        //GET: PDFs
         [Authorize]
         public ActionResult Index()
         {
@@ -37,9 +37,11 @@ namespace FinalProject.Controllers
                 return HttpNotFound();
             }
 
-            filename = pDF.filename.ToString();
-            TempData["file"] = filename;
-            
+            // filename = pDF.filename.ToString();
+            TempData["file"] = pDF.filename;
+            TempData.Keep("file"); //filename;
+
+
             return RedirectToAction("Create", "Annotations");
         }
 
