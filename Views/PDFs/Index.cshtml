@@ -31,7 +31,7 @@
         @foreach (var item in Model.Where(a => a.CategoryId == Int32.Parse(TempData["Category"].ToString())))
         {
             <div class="col-md-4" id="item">
-                <img src="~/Content/a_logo.png" alt="Annotext Logo" height="175" width="175" />
+                <img src="~/Content/img/logo/a-logo.png" alt="Annotext Logo" height="100" width="100" />
                 @Html.DisplayFor(modelItem => item.filename)
                 <br />
                 <div>
