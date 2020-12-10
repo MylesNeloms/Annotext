@@ -1,0 +1,101 @@
+﻿@model FinalProject.Models.Comment
+
+@section Content {
+    <link href="@Url.Content("~/Content/CreateView.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/smart-forms.css">
+    <link href="~/Content/bluetheme.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+
+
+@{
+    ViewBag.Title = "Comments";
+}
+@Html.ActionLink("Back to List", "Create", "Annotations")
+
+
+<h3>You are commenting on @ViewBag.use 's Annotation of @ViewBag.file</h3>
+
+
+
+
+<div class="parent">
+    <div class="child" id="div1">
+        <div class="pdf" id="pdfview">
+            Annotation Content: @ViewBag.Content
+
+
+
+
+
+        </div>
+        <!--<div class="smart-wrap">
+            <div class="smart-forms smart-container wrap-3">
+
+                <div class="form-header header-blue">
+                    <h4><i class="fa fa-comments"></i> Let's Annotate! </h4>
+                </div><!-- end .form-header section -->
+        <!--<form method="post" action="/" id="comment2">
+            <div class="form-body theme-blue">
+
+                <div class="section">
+                    <label class="field prepend-icon">-->
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.TextAreaFor(model => model.content, 5, 100, new { htmlAttributes = new { @class = "gui-textarea", id = "comment", name = "comment", @placeholder = "Add annotation..." } })
+            @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })*@
+        @*<textarea class="gui-textarea" id="comment" name="comment" placeholder="Add annotation..."></textarea>
+                    <span class="field-icon"><i class="fa fa-comments"></i></span>
+                </label>
+            </div>-->*@<!-- end section -->
+        <!--</div>--><!-- end .form-body section -->
+        <!--<div class="form-footer">
+            <button type="submit" class="button btn-blue">Submit</button>
+        </div>-->
+        <!-- end .form-footer section -->
+        <!--</form>
+
+        </div>-->
+        <!-- end .smart-forms section -->
+        <!--</div>--><!-- end .smart-wrap section -->
+        @*Annotation Creation/Submission Box*@
+        <div class="abox">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Comment Below</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.content, 5, 100, new { htmlAttributes = new { @class = "comment", style = "width: 100%; max-width:100%" } })
+                            @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="child2" id="div2">
+        @*Renders Annotation List by calling the Index View *@
+        <div class="vis" id="alist">
+            @{
+                Html.RenderAction("Index");
+            }
+        </div>
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Create", "Annotations")
+
+</div>

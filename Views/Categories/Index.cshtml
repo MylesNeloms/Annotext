@@ -1,4 +1,8 @@
-﻿@model IEnumerable<FinalProject.Models.PDF>
+﻿@model IEnumerable<FinalProject.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
 
 @section Content {
     <link href="@Url.Content("~/Content/CreateView.css")" rel="stylesheet" type="text/css" />
@@ -22,22 +26,22 @@
 </style>
 
 <div class="section-title">
-    <h2>Popular Textbooks</h2>
-    <h3>Select a Study Material!</h3>
-    @Html.ActionLink("Back", "GoBack")
+    <h2>Categories</h2>
+    <h3>Lets Browse All Subjects</h3>
 </div>
 <div class="container">
     <div class="row">
-        @foreach (var item in Model.Where(a => a.CategoryId == Int32.Parse(TempData["Category"].ToString())))
+        @foreach (var item in Model)
         {
             <div class="col-md-4" id="item">
                 <img src="~/Content/a_logo.png" alt="Annotext Logo" height="175" width="175" />
-                @Html.DisplayFor(modelItem => item.filename)
+                @Html.DisplayFor(modelItem => item.CategoryName)
                 <br />
                 <div>
-                    @Html.ActionLink("Read More", "Details", new { id = item.PDFid })
+                    @Html.ActionLink("Click Here", "Details", new { id = item.CategoryId })
                 </div>
             </div>
         }
     </div>
 </div>
+</table>

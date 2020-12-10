@@ -6,16 +6,13 @@ using System.Web;
 
 namespace FinalProject.Models
 {
-    public class PDF
+    public class Category
     {
         [Key]
-        public int PDFid { get; set; }
-        public string filename { get; set; }
-        
-
-        public List<Annotation> annotations { get; set; }
-
         public int CategoryId { get; set; }
-        public Category category { get; set; }
+
+        public string CategoryName { get; set; }
+        
+        public List<PDF> Pdfs { get; set; }
     }
 }

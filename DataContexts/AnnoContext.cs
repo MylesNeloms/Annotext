@@ -14,7 +14,10 @@ namespace FinalProject.DataContexts
         public AnnoContext() : base("DefaultConnection")
         { }
 
+        public DbSet<Category> categories { get; set; }
         public DbSet<PDF> PDFs { get; set; }
         public DbSet<Annotation> annotations { get; set; }
+        public DbSet<Comment> comments { get; set; }
+
     }
 }

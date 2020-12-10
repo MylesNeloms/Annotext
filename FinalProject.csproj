@@ -184,6 +184,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnnotationsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PDFsController.cs" />
@@ -192,21 +194,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MigrationCommands\MakePDFs.cs" />
-    <Compile Include="Migrations\202011262254376_MakeDb.cs" />
-    <Compile Include="Migrations\202011262254376_MakeDb.Designer.cs">
-      <DependentUpon>202011262254376_MakeDb.cs</DependentUpon>
+    <Compile Include="Migrations\202012100553498_Initial.cs" />
+    <Compile Include="Migrations\202012100553498_Initial.Designer.cs">
+      <DependentUpon>202012100553498_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011270441427_MakeDb1.cs" />
-    <Compile Include="Migrations\202011270441427_MakeDb1.Designer.cs">
-      <DependentUpon>202011270441427_MakeDb1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071700023_DataValidation.cs" />
-    <Compile Include="Migrations\202012071700023_DataValidation.Designer.cs">
-      <DependentUpon>202012071700023_DataValidation.cs</DependentUpon>
+    <Compile Include="Migrations\202012100602038_MakeDb.cs" />
+    <Compile Include="Migrations\202012100602038_MakeDb.Designer.cs">
+      <DependentUpon>202012100602038_MakeDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Annotation.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\PDF.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -252,6 +252,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -390,6 +391,19 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Storage\ArchitectureDesignSpecification.pdf" />
+    <Content Include="Storage\SystemRequirementSpecification %281%29.pdf" />
+    <Content Include="Storage\ProjectCharter %281%29.pdf" />
+    <Content Include="Storage\ProjectProposalFinal %282%29.pdf" />
+    <Content Include="Storage\DDS_Group3 %281%29.pdf" />
+    <Content Include="Storage\STP___Annotext.pdf" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\Comments\_CommentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -400,21 +414,18 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011262254376_MakeDb.resx">
-      <DependentUpon>202011262254376_MakeDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011270441427_MakeDb1.resx">
-      <DependentUpon>202011270441427_MakeDb1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071700023_DataValidation.resx">
-      <DependentUpon>202012071700023_DataValidation.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012100553498_Initial.resx">
+      <DependentUpon>202012100553498_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012100602038_MakeDb.resx">
+      <DependentUpon>202012100602038_MakeDb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

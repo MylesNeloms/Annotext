@@ -32,10 +32,15 @@
 </tr>
 
 <tr>
-    <td>
-        @Html.ActionLink("Vote", "Edit", new { id = Model.id })
-    </td>
+    <td>@Html.ActionLink("View Comments", "GoToComments", new { id = Model.AnnotationId })</td>
+
+    @if (this.User.Identity.Name != Model.author)
+    {
+        <td>
+            @Html.ActionLink("Vote", "Edit", new { id = Model.AnnotationId })
+        </td>}
 </tr>
+<tr><td>--------------------------------------------------</td></tr>
 @*<td>
         @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
         @Html.ActionLink("Details", "Details", new { id = Model.id }) |

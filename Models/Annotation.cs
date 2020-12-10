@@ -8,11 +8,16 @@ namespace FinalProject.Models
 {
     public class Annotation
     {
-        
-        public int id { get; set; }
+
+        [Key]
+        public int AnnotationId { get; set; }
         [Required]
         public String content { get; set; }
 
+        [Required]
+        public String filename { get; set; }
+
+        [Required]
         public String author { get; set; }
 
         public int VoteVal { get; set; }
@@ -22,12 +27,17 @@ namespace FinalProject.Models
         
         [Range(0, 50)]
         public int paragraph { get; set; }
-        //[Key]
-        //public int id { get; set; }
+
+        
+        
 
 
-        public string filename { get; set; }
+        public List<Comment> comments { get; set; }
+
+        
         public PDF pdf { get; set; }
+        public string PDFId { get; set; }
+       
 
        
     }

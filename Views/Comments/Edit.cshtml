@@ -1,0 +1,61 @@
+﻿@model FinalProject.Models.Comment
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Annotation</h4>
+        <hr />
+        <table>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.content) : @Html.DisplayFor(modelItem => Model.content)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.author) : @Html.DisplayFor(modelItem => Model.author)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.VoteVal) : @Html.DisplayFor(modelItem => Model.VoteVal)
+                </td>
+            </tr>
+        </table>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <label>Like:</label>
+                        @Html.RadioButtonFor(m => m.VoteVal, Model.VoteVal = Model.VoteVal + 1);
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Dislike:</label>
+                        @Html.RadioButtonFor(m => m.VoteVal, Model.VoteVal = Model.VoteVal - 2);
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Vote" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Comment List", "Create")
+</div>

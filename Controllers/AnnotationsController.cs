@@ -61,19 +61,19 @@ namespace FinalProject.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,content,pageNum,paragraph")] Annotation annotation)
+        public ActionResult Create([Bind(Include = "AnnotationId,content,pageNum,paragraph")] Annotation annotation)
         {
             annotation.VoteVal = 0;
             annotation.filename = TempData["file"].ToString();//=file;
             annotation.author = this.User.Identity.Name.ToString();
-           if (ModelState.IsValid)
-            {
+          // if (ModelState.IsValid)
+           // {
 
                 db.annotations.Add(annotation);
                 db.SaveChanges();
                 ModelState.Clear();
   
-            }
+          //  }
             ViewBag.file = TempData["file"];// = file;
             TempData.Keep("file");
             
@@ -82,11 +82,21 @@ namespace FinalProject.Controllers
         }
 
 
-
-        // GET: Annotations/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult GoToComments(int? id)
+        {
+            TempData["content"] =  db.annotations.Find(id).content;
+            TempData.Keep("content");
+            TempData.Keep("file");
+            TempData["Annotation"] = id;
+            TempData.Keep("Annotation");
+            return RedirectToAction("Create", "Comments");
+        }
+            // GET: Annotations/Edit/5
+            public ActionResult Edit(int? id)
         {
             TempData.Keep("file");
+            TempData["Annotation"] = db.annotations.Find(id).AnnotationId;
+            TempData.Keep("Annotation");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -104,10 +114,12 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,VoteVal")] Annotation annotation)
+        public ActionResult Edit([Bind(Include = "AnnotationId,VoteVal")] Annotation annotation)
         {
             TempData.Keep("file");
-            Annotation an = db.annotations.Find(annotation.id);
+            TempData.Keep("Annotation");
+            ViewBag.wtf = annotation.VoteVal;
+            var an = db.annotations.Find(int.Parse(TempData["Annotation"].ToString()));
             an.VoteVal = annotation.VoteVal;
             //if (ModelState.IsValid)
             //{

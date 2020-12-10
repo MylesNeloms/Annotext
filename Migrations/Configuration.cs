@@ -20,12 +20,17 @@ namespace FinalProject.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
-            //context.PDFs.AddOrUpdate(
-            //   t => t.filename, MakePDFs.getPdfs().ToArray());
+
+            //context.categories.AddOrUpdate(f => new { f.CategoryId }, MakePDFs.getCategories(context).ToArray());
             //context.SaveChanges();
 
-            //context.annotations.AddOrUpdate(f => new { f.content }, MakePDFs.getAnno(context).ToArray());
-            //context.SaveChanges();
+            context.PDFs.AddOrUpdate(
+               t => t.PDFid, MakePDFs.getPdfs(context).ToArray());
+            context.SaveChanges();
+
+
+
+
         }
     }
 }

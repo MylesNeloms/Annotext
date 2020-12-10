@@ -11,124 +11,114 @@ using FinalProject.Models;
 
 namespace FinalProject.Controllers
 {
-    public class PDFsController : Controller
+    public class CategoriesController : Controller
     {
-        public static string filename = "";
-
         private AnnoContext db = new AnnoContext();
 
-        //GET: PDFs
-        [Authorize]
+        // GET: Categories
         public ActionResult Index()
         {
-            return View(db.PDFs.ToList());
+            return View(db.categories.ToList());
         }
 
-        [Authorize]// GET: PDFs/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PDF pDF = db.PDFs.Find(id);
-            if (pDF == null)
+            Category category = db.categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
 
-            // filename = pDF.filename.ToString();
-            TempData["file"] = pDF.filename;
-            TempData.Keep("file"); //filename;
+            
+            TempData["Category"] = category.CategoryId;
+           
 
 
-            return RedirectToAction("Create", "Annotations");
+            return RedirectToAction("Index", "PDFs");
         }
 
-        public ActionResult GoBack()
-        {
-            return RedirectToAction("Index", "Categories");
-        }
-
-
-
-
-            // GET: PDFs/Create
-            public ActionResult Create()
+        // GET: Categories/Create
+        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PDFs/Create
+        // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,filename")] PDF pDF)
+        public ActionResult Create([Bind(Include = "CategoryId,CategoryName")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.PDFs.Add(pDF);
+                db.categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(pDF);
+            return View(category);
         }
 
-        // GET: PDFs/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PDF pDF = db.PDFs.Find(id);
-            if (pDF == null)
+            Category category = db.categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(pDF);
+            return View(category);
         }
 
-        // POST: PDFs/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,filename")] PDF pDF)
+        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pDF).State = EntityState.Modified;
+                db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(pDF);
+            return View(category);
         }
 
-        // GET: PDFs/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PDF pDF = db.PDFs.Find(id);
-            if (pDF == null)
+            Category category = db.categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(pDF);
+            return View(category);
         }
 
-        // POST: PDFs/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PDF pDF = db.PDFs.Find(id);
-            db.PDFs.Remove(pDF);
+            Category category = db.categories.Find(id);
+            db.categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -141,24 +131,5 @@ namespace FinalProject.Controllers
             }
             base.Dispose(disposing);
         }
-
-
-        //public ActionResult RenderView()
-        //{
-
-        //    return PartialView("AnnotationForm");
-        //}
-
-        //public ActionResult ViewPDF()
-        //{
-        //    string embed = "<object data=\"{0}\" type=\"application/pdf\" width=\"500px\" height=\"300px\">";
-        //    embed += "If you are unable to view file, you can download from <a href = \"{0}\">here</a>";
-        //    embed += " or download <a target = \"_blank\" href = \"http://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
-        //    embed += "</object>";
-        //    TempData["Embed"] = string.Format(embed, VirtualPathUtility.ToAbsolute("~/Files/Mudassar_Khan.pdf"));
-
-        //    return RedirectToAction("Details");
-        //}
-
     }
 }

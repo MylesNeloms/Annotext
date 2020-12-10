@@ -1,0 +1,16 @@
+﻿@model IEnumerable<FinalProject.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<table>
+    @foreach (var item in Model.Where(a => a.AnnotationId == TempData["annotation"].ToString()).OrderByDescending(a => a.VoteVal))
+    {
+        @Html.Partial("_CommentList", item)
+    
+}
+</table>
+

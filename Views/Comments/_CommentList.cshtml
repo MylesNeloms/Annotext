@@ -1,0 +1,27 @@
+﻿
+@model FinalProject.Models.Comment
+@*Format for each annotation*@
+<tr>
+    <td>
+        @Html.DisplayNameFor(model => model.content) : @Html.DisplayFor(modelItem => Model.content)
+    </td>
+</tr>
+<tr>
+    <td>
+        @Html.DisplayNameFor(model => model.author) : @Html.DisplayFor(modelItem => Model.author)
+    </td>
+</tr>
+<tr>
+    <td>
+        @Html.DisplayNameFor(model => model.VoteVal) : @Html.DisplayFor(modelItem => Model.VoteVal)
+    </td>
+</tr>
+@if (this.User.Identity.Name != Model.author)
+{
+<tr>
+    <td>
+        @Html.ActionLink("Vote", "Edit", new { id = Model.CommentId })
+    </td>
+</tr>
+}
+<tr><td>--------------------------------------------------</td></tr>
