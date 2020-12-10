@@ -18,6 +18,7 @@ namespace FinalProject.Controllers
         // GET: Comments
         public ActionResult Index()
         {
+            ViewBag.ShowNavBar = false;
             return View(db.comments.ToList());
         }
 
