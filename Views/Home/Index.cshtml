@@ -1,149 +1,152 @@
-﻿<!--@{
-    ViewBag.Title = "Home Page";
+﻿@{
+    ViewBag.title = "Home Page";
 }
+@section Content {
 
-<!DOCTYPE html>
+    <link rel="stylesheet" href="~/Content/style.css" />
+    <link href="@Url.Content("~/Content/CreateView.css")" rel="stylesheet" type="text/css" />
+}
+<!doctype html>
 <html lang="en">
 <head>
     <title>Annotext</title>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
     <script src="https://kit.fontawesome.com/efe359832b.js" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
 </head>
-<body>-->
-    <!-- Header Start -->
-    <!--<script language="javascript" type="text/javascript" src="includes/header.txt"></script>-->
-    <!-- Header End -->
-    <!-- Tagline Start -->
-    <!--<div class="header">
-        <h1>The New Way to Read Textbooks is With Us!</h1>
-        <p>Innovators in Education</p>
-        
-    </div>-->
-    <!--Tagline End-->
-    <!--Browse Subjects Start-->
-    <!--<div class="section-title">
+<body>
+    @*header start*@
+    <script language="javascript" type="text/javascript" src="includes/header.txt"></script>
+    @*header end*@
+    @*tagline start*@
+<div class="header">
+    <h1>the new way to read textbooks is with us!</h1>
+    <p>innovators in education</p>
+    <button class="button" onclick="location.href='@Url.Action("Index", "Categories")'";>Get Started</button>
+</div>
+    @*tagline end*@
+   @* browse subjects start*@
+    <div class="section-title">
         <span>Popular Courses</span>
         <h2>Lets Browse All Subjects</h2>
-    </div>-->
-    <!--Browse Subjects End-->
-    <!-- Subject Section Start-->
-    <!--<div class="section">
+    </div>
+    @*browse subjects end
+    subject section start*@
+    <div class="section">
         <div class="row-subject">
             <div class="subject">
-               
-                <h3>Social Sciences</h3>
-                <p>Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
+                <img class="subject-img" src="~/Content/img/christina-wocintechchat-com-NPwrwdQO3Mw-unsplash.jpg" alt="Students Socializing">
+                <h3>social sciences</h3>
+                <p>sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
             </div>
             <div class="subject">
-               
-                <h3>STEM</h3>
-                <p>Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
+                <img class="subject-img" src="~/Content/img/pexels-rfstudio-3825412.jpg" alt="STEM Student">
+                <h3>stem</h3>
+                <p>sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
             </div>
             <div class="subject">
-                
-                <h3>Specialized Instruction</h3>
-                <p>Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
+                <img class="subject-img" src="~/Content/img/pexels-andrea-piacquadio-3769021.jpg" alt="Female Student with Laptop">
+                <h3>specialized instruction</h3>
+                <p>sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
             </div>
-        </div>-->
-        <!--Find More Subjects Button Start-->
-        <!--<div class="section-title">
-            <a href="library.html" class="button">Find More Subjects</a>
         </div>
-    </div>-->
-    <!--Find More Books Button End-->
-    <!--Subject Section End-->
-    <!--More About Our Company Section Start-->
-    <!--<div class="section-about">
+        @*find more subjects button start*@
+    <div class="section-title">
+        <button class="button" onclick="location.href='@Url.Action("Index", "Categories")'" ;>Find More Subjects</button>
+    </div>
+    </div>
+    @*find more books button end
+    subject section end
+    more about our company section start*@
+    <div class="section-about">
         <div class="row-about">
             <div class="about-text">
-                <span>More About Our Company</span>
-                <h2>Want to know more</h2>
-                <p>There arge many variations ohf passages of sorem gpsum ilable, but the majority have suffered alteration in some form, by ected humour, or randomised words while akfjsldkj dfkljs ad sldfj lsd sdlfj slsfdj hey.</p>
+                <span>more about our company</span>
+                <h2>want to know more</h2>
+                <p>there arge many variations ohf passages of sorem gpsum ilable, but the majority have suffered alteration in some form, by ected humour, or randomised words while akfjsldkj dfkljs ad sldfj lsd sdlfj slsfdj hey.</p>
                 <ul>
-                    <li>Creative ideas base</li>
-                    <li>Assages of sorem gpsum ilable</li>
-                    <li>Have suffered alteration in so</li>
-                    <li>Randomised words whi</li>
+                    <li>creative ideas base</li>
+                    <li>assages of sorem gpsum ilable</li>
+                    <li>have suffered alteration in so</li>
+                    <li>randomised words whi</li>
                 </ul>
-                <a href="about.html" class="button">More About Us</a>
-            </div>-->
-            <!-- about-img -->
-            <!--<div class="about-img">
-                <img src="img/college-students-studying.jpg" alt="College Students Studying" />
+                <a href="about.html" class="button">more about us</a>
+            </div>
+            @*about-img*@
+            <div class="about-img">
+                <img src="~/Content/img/college-students-studying.jpg" alt="college students studying" />
             </div>
         </div>
-    </div>-->
-    <!--More About Our Company Section End-->
-    <!-- Infographic Section -->
-    <!--<div class="section">
+    </div>
+    @*more about our company section end
+    infographic section*@
+    <div class="section">
         <div class="row-subject">
             <div class="info">
-                <img src="img/numbers/85.png" alt="85">
-                <h2>Digital Textbooks</h2>
-                <p>Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
+                <img src="~/Content/img/numbers/85.png" alt="85">
+                <h2>digital textbooks</h2>
+                <p>sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
             </div>
             <div class="info">
-                <img src="img/numbers/27.png" alt="27">
-                <h2>Subjects Represented</h2>
-                <p>Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
+                <img src="~/Content/img/numbers/27.png" alt="27">
+                <h2>subjects represented</h2>
+                <p>sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
             </div>
             <div class="info">
-                <img src="img/numbers/300.png" alt="300">
-                <h2>Students Helped</h2>
-                <p>Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
+                <img src="~/Content/img/numbers/300.png" alt="300">
+                <h2>students helped</h2>
+                <p>sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod tempor incidi.</p>
             </div>
         </div>
-    </div>-->
-    <!--Infographic Section End-->
-    <!--Testimonial Section Start-->
-    <!--&lt;!&ndash;? Testimonial Start &ndash;&gt;-->
-    <!--&lt;!&ndash;/***************************************************************************************&ndash;&gt;-->
-    <!--&lt;!&ndash;  *    Title: Testimonial Slider Pure CSS-->
-    <!--&lt;!&ndash;  *    Author: MAHESH AMBURE-->
-    <!--&lt;!&ndash;  *    Date: March 8, 2016-->
-    <!--&lt;!&ndash;  *    Code version: N/A-->
-    <!--&lt;!&ndash;  *    Availability: https://codepen.io/maheshambure21/pen/qZZrxy -->
-    <!--&lt;!&ndash;  *-->
-    <!--&lt;!&ndash;  ***************************************************************************************/&ndash;&gt;-->
-    <!--<div class="testimonial-section">
+    </div>
+    @*infographic section end
+    testimonial section start*@
+    @*&lt;!&ndash;? testimonial start &ndash;&gt;
+    &lt;!&ndash;/***************************************************************************************&ndash;&gt;
+    &lt;!&ndash;  *    title: testimonial slider pure css
+    &lt;!&ndash;  *    author: mahesh ambure
+    &lt;!&ndash;  *    date: march 8, 2016
+    &lt;!&ndash;  *    code version: n/a
+    &lt;!&ndash;  *    availability: https://codepen.io/maheshambure21/pen/qzzrxy
+    &lt;!&ndash;  *
+    &lt;!&ndash;  ***************************************************************************************/&ndash;&gt;*@
+    @*<div class="testimonial-section">
         <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav" />
         <input type="radio" name="slider" title="slide2" class="slider__nav" />
         <input type="radio" name="slider" title="slide3" class="slider__nav" />
         <input type="radio" name="slider" title="slide4" class="slider__nav" />
         <div class="slider__inner">
             <div class="slider__contents">
-                
-                <h2 class="slider__caption">Dreya K.</h2>
-                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!"</p>
+                <img class="testimonial-image" src="~/Content/img/testimonials/dreya.jpg" alt="College Student" />
+                <h2 class="slider__caption">dreya k.</h2>
+                <p class="testimonial-text">"lorem ipsum dolor sit amet, consectetur adipisicing elit. at cupiditate omnis possimus illo quos, corporis minima!"</p>
             </div>
             <div class="slider__contents">
-                
-                <h2 class="slider__caption">Matthew S.</h2>
-                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!"</p>
+                <img class="testimonial-image" src="~/Content/img/testimonials/matthew.jpg" alt="College Student" />
+                <h2 class="slider__caption">matthew s.</h2>
+                <p class="testimonial-text">"lorem ipsum dolor sit amet, consectetur adipisicing elit. at cupiditate omnis possimus illo quos, corporis minima!"</p>
             </div>
             <div class="slider__contents">
-                
-                <h2 class="slider__caption">Rosalina G.</h2>
-                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!"</p>
+                <img class="testimonial-image" src="~/Content/img/testimonials/rosalina.jpg" alt="College Student" />
+                <h2 class="slider__caption">rosalina g.</h2>
+                <p class="testimonial-text">"lorem ipsum dolor sit amet, consectetur adipisicing elit. at cupiditate omnis possimus illo quos, corporis minima!"</p>
             </div>
             <div class="slider__contents">
-                
-                <h2 class="slider__caption">Carlos R.</h2>
-                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!"</p>
+                <img class="testimonial-image" src="~/Content/img/testimonials/carlos.jpg" alt="College Student" />
+                <h2 class="slider__caption">carlos r.</h2>
+                <p class="testimonial-text">"lorem ipsum dolor sit amet, consectetur adipisicing elit. at cupiditate omnis possimus illo quos, corporis minima!"</p>
             </div>
         </div>
-    </div>-->
-    <!-- Testimonial Section End -->
-    <!--Featured Books Gallery Title Start-->
-    <!--<div class="section-title">
+    </div>*@
+    @*testimonial section end
+    featured books gallery title start*@
+    <div class="section-title">
         <span>Popular Textbooks</span>
         <h2>Lets Browse All Subjects</h2>
-    </div>-->
-    <!--Featured Books Gallery Start-->
-    <!--<div class="slider">
+    </div>
+    @*featured books gallery start*@
+    <div class="slider">
         <input type="radio" name="testimonial" id="t-1">
         <input type="radio" name="testimonial" id="t-2">
         <input type="radio" name="testimonial" id="t-3" checked>
@@ -151,24 +154,24 @@
         <input type="radio" name="testimonial" id="t-5">
         <div class="testimonials">
             <label class="item" for="t-1">
-                <img src="img/textbook/anatomy.jpg" alt="Anatomy Textbook">
-                <a href="register.html" class="read-more1">Read More</a>
+                <img src="~/Content/img/textbook/anatomy.jpg" alt="anatomy textbook">
+                <a href="register.html" class="read-more1">read more</a>
             </label>
             <label class="item" for="t-2">
-                <img src="img/textbook/english.jpg" alt="English Texbook">
-                <a href="register.html" class="read-more1">Read More</a>
+                <img src="~/Content/img/textbook/english.jpg" alt="english texbook">
+                <a href="register.html" class="read-more1">read more</a>
             </label>
             <label class="item" for="t-3">
-                <img src="img/textbook/cs.jpg" alt="Computer Science Textbook">
-                <a href="register.html" class="read-more1">Read More</a>
+                <img src="~/Content/img/textbook/cs.jpg" alt="computer science textbook">
+                <a href="register.html" class="read-more1">read more</a>
             </label>
             <label class="item" for="t-4">
-                <img src="img/textbook/chemistry.jpg" alt="Chemistry Textbook">
-                <a href="register.html" class="read-more1">Read More</a>
+                <img src="~/Content/img/textbook/chemistry.jpg" alt="chemistry textbook">
+                <a href="register.html" class="read-more1">read more</a>
             </label>
             <label class="item" for="t-5">
-                <img src="img/textbook/history.jpg" alt="History Textbook">
-                <a href="register.html" class="read-more1">Read More</a>
+                <img src="~/Content/img/textbook/history.jpg" alt="history textbook">
+                <a href="register.html" class="read-more1">read more</a>
             </label>
         </div>
         <div class="dots">
@@ -178,17 +181,18 @@
             <label for="t-4"></label>
             <label for="t-5"></label>
         </div>
-    </div>-->
-    <!--Featured Books Gallery End-->
-    <!-- Footer Start -->
-    <!--<script language="javascript" type="text/javascript" src="includes/footer.txt"></script>-->
-    <!-- Footer End -->
-    <!--</div>
+    </div>
+    @*featured books gallery end
+    footer start*@
+    <footer>
+        <div>
+    <script language="javascript" type="text/javascript" src="~/Content/includes/footer.txt"></script>
+    @*footer end*@
     </div>
     </footer>
 </body>
-</html>-->
-<!--Copyright (c) 2020 by MAHESH AMBURE (https://codepen.io/maheshambure21/pen/qZZrxy)-->
-<!--Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:-->
-<!--The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.-->
-<!--THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
+</html>
+@*copyright (c) 2020 by mahesh ambure (https://codepen.io/maheshambure21/pen/qzzrxy)
+    permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "software"), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions:
+    the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software.
+    the software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.*@
